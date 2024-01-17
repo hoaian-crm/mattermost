@@ -13,7 +13,6 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/hoaian-crm"
   },
-
   "license": "UNLICENSED",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -47,6 +46,7 @@
     "amqp-connection-manager": "^4.1.14",
     "amqplib": "^0.10.3",
     "aws-sdk": "^2.1506.0",
+    "axios": "^1.6.5",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "crm-prototypes": "^1.0.8",

@@ -19,6 +19,12 @@ let DevopsBotService = class DevopsBotService {
             mattermostServer: process.env.MATTERMOST_SERVER
         });
     }
+    sendRestartDeployment(query) {
+        return this.mattermost.send({
+            message: `@botkube kubectl rollout restart deployment ${query.deployment}`,
+            channel_id: '1s9fscw8h7rx5kg4iit94k5o9r'
+        });
+    }
 };
 exports.DevopsBotService = DevopsBotService;
 exports.DevopsBotService = DevopsBotService = __decorate([

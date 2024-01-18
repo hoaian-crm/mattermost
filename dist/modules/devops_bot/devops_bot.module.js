@@ -9,13 +9,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DevopsBotModule = void 0;
 const common_1 = require("@nestjs/common");
 const devops_bot_service_1 = require("./devops_bot.service");
+const devops_bot_controller_1 = require("./devops_bot.controller");
 let DevopsBotModule = class DevopsBotModule {
 };
 exports.DevopsBotModule = DevopsBotModule;
 exports.DevopsBotModule = DevopsBotModule = __decorate([
     (0, common_1.Module)({
         providers: [devops_bot_service_1.DevopsBotService],
-        exports: [devops_bot_service_1.DevopsBotService]
+        exports: [devops_bot_service_1.DevopsBotService],
+        controllers: [devops_bot_controller_1.DevopsBotController]
     })
 ], DevopsBotModule);
 //# sourceMappingURL=devops_bot.module.js.map

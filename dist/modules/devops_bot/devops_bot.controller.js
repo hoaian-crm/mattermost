@@ -12,28 +12,28 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DockerBotController = void 0;
+exports.DevopsBotController = void 0;
 const common_1 = require("@nestjs/common");
-const docker_bot_service_1 = require("./docker_bot.service");
-let DockerBotController = class DockerBotController {
-    constructor(dockerbotService) {
-        this.dockerbotService = dockerbotService;
+const devops_bot_service_1 = require("./devops_bot.service");
+let DevopsBotController = class DevopsBotController {
+    constructor(devopsBotService) {
+        this.devopsBotService = devopsBotService;
     }
-    async webhook(data) {
-        console.log(data);
+    async restartDeployment(query) {
+        await this.devopsBotService.sendRestartDeployment(query);
         return 'Ok';
     }
 };
-exports.DockerBotController = DockerBotController;
+exports.DevopsBotController = DevopsBotController;
 __decorate([
-    (0, common_1.Post)('webhook'),
-    __param(0, (0, common_1.Body)()),
+    (0, common_1.Get)('/deployment/restart'),
+    __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], DockerBotController.prototype, "webhook", null);
-exports.DockerBotController = DockerBotController = __decorate([
-    (0, common_1.Controller)('docker'),
-    __metadata("design:paramtypes", [docker_bot_service_1.DockerbotService])
-], DockerBotController);
-//# sourceMappingURL=docker_bot.controller.js.map
+], DevopsBotController.prototype, "restartDeployment", null);
+exports.DevopsBotController = DevopsBotController = __decorate([
+    (0, common_1.Controller)('devops'),
+    __metadata("design:paramtypes", [devops_bot_service_1.DevopsBotService])
+], DevopsBotController);
+//# sourceMappingURL=devops_bot.controller.js.map

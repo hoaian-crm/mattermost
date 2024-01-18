@@ -46,6 +46,18 @@ export class GithubBotService {
     return this.mattermost.send({
       message: `##### Docker page ${data.action} @all: ${data.repository.html_url}`,
       channel_id: 'iignkzboeigsud5sxa4ffwrbjy',
+      props: {
+        attachments: [{
+          actions: [
+            {
+              id: 'restart', name: `Rollout restart ${data.registry_package.name}`,
+              integration: {
+                url: process.env.Bot + "/devops/deployment/restart"
+              }
+            }
+          ]
+        }]
+      }
     })
   }
 }
